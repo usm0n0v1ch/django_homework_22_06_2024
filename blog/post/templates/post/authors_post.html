@@ -1,0 +1,25 @@
+
+{% extends 'user/layouts/base.html' %}
+
+{% block title %}Авторы и их посты{% endblock %}
+
+{% block main %}
+<h1>Авторы и их посты</h1>
+
+{% for author_post in author_posts %}
+    <h2>{{ author_post.author.username }}</h2>
+    <ul>
+        {% for post in author_post.posts %}
+            <li>{{ post.title }}</li>
+            <ul>
+                <li>{{ post.content }}</li>
+                <li><a href="{% url 'delete_post' pk=post.pk %}">Удалить</a></li>
+                <li><a href="{% url 'edit_post' pk=post.pk %}">Редактировать</a></li>
+                <li><a href="{% url 'post_info' pk=post.pk %}">Информация о посте</a></li>
+            </ul>
+        {% endfor %}
+    </ul>
+{% endfor %}
+
+<a href="{% url 'home' %}">Назад</a>
+{% endblock %}

@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>{% block title %}DEFAULT TITLE{% endblock %}</title>
+    <style>
+        body {
+            margin: 0;
+            padding: 0;
+        }
+        header {
+            background-color: #f0f0f0; /* Цвет фона */
+            padding: 10px 0; /* Поля внутри header */
+            border-bottom: 1px solid #ccc; /* Горизонтальная линия под header */
+            display: flex; /* Используем flexbox для управления расположением */
+            justify-content: space-between; /* Выравниваем элементы по краям */
+            align-items: center; /* Выравниваем элементы по центру по вертикали */
+        }
+
+        /* Стилизация списка внутри header */
+        header ul {
+        justify-content: flex-end;
+            list-style-type: none; /* Убираем маркеры у списка */
+            margin: 0;
+            padding: 0;
+            display: flex; /* Используем flexbox для управления расположением */
+        }
+
+        /* Стилизация элементов списка */
+        header ul li {
+            margin-left: 10px; /* Отступ между элементами списка */
+        }
+
+        /* Стилизация ссылок внутри списка */
+        header ul li a {
+            text-decoration: none; /* Убираем подчеркивание ссылок */
+            color: #333; /* Цвет текста ссылок */
+            padding: 5px 10px; /* Поля вокруг текста ссылок */
+            border-radius: 5px; /* Закругляем углы ссылок */
+            transition: background-color 0.3s ease; /* Плавное изменение цвета фона при наведении */
+        }
+
+        /* Стилизация ссылок при наведении */
+        header ul li a:hover {
+            background-color: #ddd; /* Цвет фона при наведении */
+        }
+
+    </style>
+</head>
+<body>
+<div class="container">
+    {% block header %}
+    <header>
+        <ul>
+            <li><a href="{% url 'profile' %}">Профиль</a></li>
+            <li><a href="{% url 'logout' %}">Выход</a></li>
+        </ul>
+    </header>
+    {% endblock %}
+
+    <main>
+        {% block main %}
+        {% endblock %}
+    </main>
+    <footer></footer>
+</div>
+</body>
+</html>

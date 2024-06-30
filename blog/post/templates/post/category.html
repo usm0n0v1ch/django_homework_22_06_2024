@@ -1,0 +1,18 @@
+{% extends 'user/layouts/base.html' %}
+
+{% block title %}Категории{% endblock %}
+
+{% block main %}
+<a href=" {% url 'add_category' %}">Добавить категорию</a>
+<a href=" {% url 'home' %}">Назад</a>
+<ul>
+    {% for category in categories %}
+        <li>{{ category.name }}
+    <a href=" {% url 'delete_category' pk=category.pk%}">Удалить</a>
+    <a href="{% url 'edit_category' pk=category.pk%}">Редактировать</a>
+            <a href="{% url 'category_info' pk=category.pk%}">Информация о категории</a>
+        </li>
+
+    {% endfor%}</ul>
+
+{% endblock %}

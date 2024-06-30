@@ -1,0 +1,17 @@
+{% extends 'user/layouts/base.html' %}
+
+{% block title %}Информация о категории{% endblock %}
+
+{% block main %}
+<h1>Посты {{ category.name }}</h1>
+    {% if posts %}
+        <ul>
+            {% for post in posts %}
+                <li><a href="{% url 'post_info' pk=post.pk %}">{{ post.title }}</a></li>
+            {% endfor %}
+        </ul>
+    {% else %}
+        <p>Нет постов</p>
+    {% endif %}
+<a href="{% url 'category' %}">Назад</a>
+{% endblock %}

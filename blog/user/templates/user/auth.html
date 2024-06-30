@@ -1,0 +1,17 @@
+{% extends 'user/layouts/base.html' %}
+
+{% block title %}
+Авторизация
+{% endblock %}
+
+{% block header %}
+{% endblock %}
+
+{% block main %}
+    <form action="" method="post">
+        {% csrf_token %}
+        {{ form.as_p }}
+        <button>Вход</button>
+    </form>
+<div>Если у вас нет аккаунта нажмите кнопку: <a href="{% url 'register' %}">Зарегистрироваться</a> </div>
+{% endblock %}

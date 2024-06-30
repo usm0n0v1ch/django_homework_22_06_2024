@@ -1,0 +1,14 @@
+{% extends 'user/layouts/base.html' %}
+
+{% block title %}Добавление поста{% endblock %}
+
+{% block main %}
+    <h1>Добавление поста</h1>
+<form action="{% url 'add_post' %}" method="post">
+    {% csrf_token %}
+    {{ form.as_p }}
+
+    <button type="submit">Сохранить</button>
+    </form>
+<a href="{% url 'home' %}">Назад</a>
+{% endblock %}

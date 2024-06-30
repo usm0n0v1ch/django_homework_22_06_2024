@@ -1,0 +1,14 @@
+{% extends 'user/layouts/base.html' %}
+
+
+{% block title %}
+Профиль
+{% endblock %}
+
+
+{% block main %}
+<h1>Профиль</h1>
+<p>{{ user.username }}</p>
+<p><a href="{% url 'logout' %}">Выход</a></p>
+<p><a href="{% url 'home' %}">Далее</a></p>
+{% endblock %}

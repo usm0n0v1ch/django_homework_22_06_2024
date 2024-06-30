@@ -1,0 +1,14 @@
+{% extends 'user/layouts/base.html' %}
+
+{% block title %}Удаление поста{% endblock %}
+
+{% block main %}
+ <h1>Удаление поста</h1>
+    <p>Удалить пост- "{{ post.title }}"?</p>
+
+    <form action="" method="post">
+        {% csrf_token %}
+        <button type="submit">Удалить</button>
+    </form>
+<a href="{% url 'home' %}">Назад</a>
+{% endblock %}
